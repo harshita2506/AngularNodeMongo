@@ -8,13 +8,13 @@
   <button mat-raised-button color="accent" (click)="onAddPost()">Save Post</button>
 </mat-card> -->
 <mat-card>
-  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm">
   <mat-form-field>
-    <input type="text" matInput name="title" ngModel #title="ngModel" required>
+    <input type="text" matInput name="title" [ngModel]="post?.title" #title="ngModel" required>
     <mat-error *ngIf= "title.invalid">Please enter Value</mat-error>
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput row="6" name="content" ngModel></textarea>
+    <textarea matInput row="6" name="content" [ngModel]="post?.content"></textarea>
   </mat-form-field>
   <button mat-raised-button color="accent" type="submit">Save Post</button>
   </form>
